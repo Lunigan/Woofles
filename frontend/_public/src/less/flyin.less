@@ -1,0 +1,176 @@
+body{
+    .page-wrap{
+        .woofles--flyin-banner-wrapper{
+            width: @woofles_flyin_content_width;
+            height: @woofles_flyin_content_height;
+            position: fixed;
+            background-color: lighten(@brand-secondary, 20%);
+            transition: 0.5s all;
+
+            .woofles--flyin-banner-label-wrapper{
+                font-size: @woofles_flyin_label_font_size;
+                font-weight: @woofles_flyin_label_font_weight;
+                color: @woofles_flyin_label_font_color;
+                background-color: @woofles_flyin_label_bg_color;
+                cursor: pointer;
+            }
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            /*
+            -- BOTTOM-RIGHT position            
+            */
+            &.woofles--flyin-position-bottom_right{
+                right: 0;
+                margin-right: @woofles_flyin_margin;
+            }
+
+            /*
+            -- BOTTOM-LEFT position            
+            */
+            &.woofles--flyin-position-bottom_left{
+                left: 0;
+                margin-left: @woofles_flyin_margin;
+            }
+
+            /*
+            -- BOTTOM positions - general styling
+            */
+            &.woofles--flyin-position-bottom_right, &.woofles--flyin-position-bottom_left{
+                .woofles--flyin-banner-label-wrapper{
+                    height: @woofles_flyin_label_height;
+                    vertical-align: middle;
+                    display: table;
+                    width: 100%;
+
+                    .woofles--flyin-banner-label-content{
+                        height: 100%;
+                        width: 100%;
+                        padding-left: 20px;
+                        padding-right: 15px;
+
+                        span{
+                            display: inline-block;
+                            line-height: @woofles_flyin_label_height;
+                            width: ~"calc(100% - 27px)";
+                            padding-right: 15px;
+                        }
+
+                        .icon--arrow-up, .icon--arrow-down{
+                            font-size: 15px;
+                        }
+                    }
+                }
+
+                &.w--is-closed{
+                    bottom: ~"calc(-@{woofles_flyin_content_height} + @{woofles_flyin_label_height})";
+                }
+
+                &.w--is-opened{
+                    bottom: 0;
+                }
+            }
+            ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            /*
+            -- RIGHT position            
+            */
+            &.woofles--flyin-position-right{
+
+                .woofles--flyin-banner-label-wrapper{
+                    
+                    .woofles--flyin-banner-label-content{
+                        transform: rotate(180deg);
+                    }
+                }
+
+                &.w--is-closed{
+                    right: ~"calc(-@{woofles_flyin_content_width} + @{woofles_flyin_label_height})";
+                }
+
+                &.w--is-opened{
+                    right: 0;
+                }
+
+                .woofles--flyin-banner-img-content-wrapper,
+                .woofles--flyin-banner-digpub-content-wrapper,
+                .woofles--flyin-banner-custom-content-wrapper{
+                    float: right;
+                }
+            }
+
+            /*
+            -- LEFT position            
+            */
+            &.woofles--flyin-position-left{
+
+                &.w--is-closed{
+                    left: ~"calc(-@{woofles_flyin_content_width} + @{woofles_flyin_label_height})";
+                }
+
+                &.w--is-opened{
+                    left: 0;
+                }
+
+                .woofles--flyin-banner-img-content-wrapper,
+                .woofles--flyin-banner-digpub-content-wrapper,
+                .woofles--flyin-banner-custom-content-wrapper{
+                    float: left;
+                }
+            }
+
+            /*
+            -- SIDE positions - general styling
+            */
+            &.woofles--flyin-position-right, &.woofles--flyin-position-left{
+                top: 0;
+                margin-top: @woofles_flyin_margin;
+
+                .woofles--flyin-banner-label-wrapper{
+                    width: @woofles_flyin_label_height;
+                    vertical-align: middle;
+                    display: inline-block;
+                    height: 100%;
+                    writing-mode: vertical-lr;
+
+                    .woofles--flyin-banner-label-content{
+                        height: 100%;
+                        width: 100%;
+                        padding-bottom: 5px;
+                        padding-top: 20px;
+
+                        span{
+                            display: inline-block;
+                            line-height: @woofles_flyin_label_height;
+                            height: ~"calc(100% - 27px)";
+                            padding-right: 15px;
+                        }
+
+                        .icon--arrow-up, .icon--arrow-down{
+                            font-size: 15px;
+                        }
+                    }
+                }
+
+                .woofles--flyin-banner-img-content-wrapper,
+                .woofles--flyin-banner-digpub-content-wrapper,
+                .woofles--flyin-banner-custom-content-wrapper{
+                    width: ~"calc(@{woofles_flyin_content_width} - @{woofles_flyin_label_height})";
+                }
+
+                &.w--is-closed{
+                    bottom: ~"calc(-@{woofles_flyin_content_height} + @{woofles_flyin_label_height})";
+                }
+
+                &.w--is-opened{
+                    bottom: 0;
+                }
+            }
+
+            .woofles--flyin-banner-img-content-wrapper{
+                background-image: url('@{woofles_flyin_img_content}');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-position: center center;
+                height: 100%;
+            }
+        }
+    }
+}

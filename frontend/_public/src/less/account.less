@@ -1,0 +1,66 @@
+body{
+    .woofles--header-wrapper{
+        .header-main{
+            .shop--navigation{
+                .navigation--list{
+                    .navigation--entry.entry--account{
+                        .account--dropdown-navigation.woofles--login-popup-enabled{
+                            width: @woofles_login_popup_width;
+
+                            .woofles--login-popup-wrapper{
+                                background: @woofles_login_popup_bg_color;
+                                border: 1px solid @brand-primary;
+                                border-radius: 3px;
+                                padding: 10px;
+
+                                .woofles--login-popup-form{
+                                    fieldset{
+                                        width: 100%;
+                                        min-width: unset;
+                                        border: none;
+                                        padding: 0;
+                                        margin: 0;
+
+                                        p{
+                                            input{
+                                                width: 100%;
+                                            }
+
+                                            &.none{
+                                                margin-bottom: 5px;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            &.woofles--popup-closed{
+                                display: none !important;
+                            }
+
+                            &.woofles--popup-opened{
+                                display: block !important;
+                            }
+
+                            &:after{
+                                -webkit-transform: rotate(135deg);
+                                transform: rotate(135deg);
+                                width: 8px;
+                                height: 8px;
+                                right: 18px;
+                                content: '';
+                                display: block;
+                                position: absolute;
+                                background: @woofles_login_popup_bg_color;
+                                border-color: @brand-primary;
+                                border-width: 0 0 1px 1px;
+                                border-style: solid;
+                                top: 0;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

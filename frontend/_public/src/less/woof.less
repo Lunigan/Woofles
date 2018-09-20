@@ -1,0 +1,38 @@
+/*
+---This "LESS" file contains all general styles.
+---WOOF!
+*/
+
+/*
+---Scroll-To-Top styles
+*/
+.woofles--scroll-to-top-btn{
+    a{
+        position: fixed;
+        z-index: 5000;
+        display: block;
+        text-align: center;
+        color: @woofles_general_scroll_to_top_icon_color;
+        background: @woofles_general_scroll_to_top_bg_color;
+        font-size: @woofles_general_scroll_to_top_font_size;
+        right: @woofles_general_scroll_to_top_right;
+        bottom: @woofles_general_scroll_to_top_bottom;
+        width: @woofles_general_scroll_to_top_width;
+        height: @woofles_general_scroll_to_top_height;
+        line-height: @woofles_general_scroll_to_top_height;
+        -webkit-transition: all .2s ease;
+        transition: all .2s ease;
+        border-radius: @woofles_general_scroll_to_top_radius;
+        border: 1px solid @woofles_general_scroll_to_top_border_color;
+      
+        // @media screen and (max-width: 667px) {
+        //   right: 2.5rem;
+        // }
+      
+        &:hover{
+            color: @woofles_general_scroll_to_top_icon_color_hover;
+            background: @woofles_general_scroll_to_top_bg_color_hover;
+            border-color: @woofles_general_scroll_to_top_border_color_hover;
+        }
+    }
+}
