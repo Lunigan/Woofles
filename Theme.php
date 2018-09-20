@@ -448,23 +448,72 @@ SHOPWARE_EOD;
             )
         );
 
-        // Create the checkbox
         $woofles_footer_headlines_size = $this->createTextField(
             'woofles_footer_headlines_size',
             'Column headlines font-size',
-            ''
+            '18px'
         );
 
-        // Create the textfield
+        $woofles_footer_headlines_weight = $this->createTextField(
+            'woofles_footer_headlines_weight',
+            'Column headlines font-weight',
+            '600'
+        );
+
+        $woofles_footer_headlines_color = $this->createColorPickerField(
+            'woofles_footer_headlines_color',
+            'Column headlines color',
+            '@brand-primary'
+        );
+
         $woofles_footer_links_size = $this->createTextField(
             'woofles_footer_links_size',
             'Links font-size',
-            ''
+            '16px'
         );
+
+        $woofles_footer_links_weight = $this->createTextField(
+            'woofles_footer_links_weight',
+            'Links font-weight',
+            '100'
+        );
+
+        $woofles_footer_links_color = $this->createColorPickerField(
+            'woofles_footer_links_color',
+            'Links color',
+            'darken(@brand-primary, 20%)'
+        );
+
+        $woofles_footer_phone_size = $this->createTextField(
+            'woofles_footer_phone_size',
+            'Phone font-size',
+            '18px'
+        );
+
+        $woofles_footer_phone_weight = $this->createTextField(
+            'woofles_footer_phone_weight',
+            'Phone font-size',
+            '600'
+        );
+
+        $woofles_footer_bg_color = $this->createColorPickerField(
+            'woofles_footer_bg_color',
+            'Footer background-color',
+            'lighten(@brand-secondary, 30%)'
+        );
+        
 
         // Adding the fields to the fieldset
         $woofles_footer_basic_settings->addElement($woofles_footer_headlines_size);
+        $woofles_footer_basic_settings->addElement($woofles_footer_headlines_weight);
+        $woofles_footer_basic_settings->addElement($woofles_footer_headlines_color);
         $woofles_footer_basic_settings->addElement($woofles_footer_links_size);
+        $woofles_footer_basic_settings->addElement($woofles_footer_links_weight);
+        $woofles_footer_basic_settings->addElement($woofles_footer_links_color);
+        $woofles_footer_basic_settings->addElement($woofles_footer_phone_size);
+        $woofles_footer_basic_settings->addElement($woofles_footer_phone_weight);
+        $woofles_footer_basic_settings->addElement($woofles_footer_bg_color);
+
         // Adding the fieldset to the tab
         $woofles_footer->addElement($woofles_footer_basic_settings);
         
