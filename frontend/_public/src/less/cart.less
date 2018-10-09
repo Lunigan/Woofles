@@ -1,0 +1,93 @@
+body {
+    .page-wrap{
+        .container--ajax-cart.off-canvas{
+            max-width: @woofles_off_canvas_width;
+            width: 100%;
+            background: @woofles_off_canvas_bg_color;
+            border: 1px solid @woofles_off_canvas_border_color;
+
+            .ajax--cart{
+                background: @woofles_off_canvas_bg_color;
+
+                .buttons--off-canvas{
+                    .close--off-canvas{
+                        background: lighten(@woofles_off_canvas_bg_color, 20%);
+                        color: @woofles_off_canvas_font_color;
+                    }
+                }
+
+                .alert{
+                    color: @woofles_off_canvas_font_color;
+                    background: lighten(@woofles_off_canvas_bg_color, 10%);
+
+                    .alert--icon{
+                        color: @woofles_off_canvas_font_color;
+                        background: darken(@woofles_off_canvas_bg_color, 10%);
+                    }
+                }
+
+                .item--container{
+                    background: @woofles_off_canvas_bg_color;
+
+                    .cart--item{
+                        border-bottom-color: darken(@woofles_off_canvas_bg_color, 20%);
+
+                        .action--container .action--remove{
+                            background: @woofles_off_canvas_secondary_btn_bg_color;
+                            color: @woofles_off_canvas_secondary_btn_font_color;
+                            border: 1px solid @woofles_off_canvas_secondary_btn_border_color;
+                            border-radius: @woofles-border-radius;
+    
+                            &:hover{
+                                border: 1px solid @woofles_off_canvas_secondary_btn_bg_color;
+                                background: @woofles_off_canvas_secondary_btn_font_color;
+                                color: @woofles_off_canvas_secondary_btn_bg_color;
+                            }
+                        }
+
+                        .item--link{
+                            color: @woofles_off_canvas_font_color;
+                        }
+                    }
+                }
+
+                .prices--container{
+                    color: @woofles_off_canvas_font_color;
+                    background: lighten(@woofles_off_canvas_bg_color, 20%);
+                    border-top-color: darken(@woofles_off_canvas_bg_color, 20%);
+                }
+
+                .button--container{
+
+                    .btn.button--checkout{
+                        background: @woofles_off_canvas_primary_btn_bg_color;
+                        color: @woofles_off_canvas_primary_btn_font_color;
+                        border: 1px solid @woofles_off_canvas_primary_btn_border_color;
+                        border-radius: @woofles-border-radius;
+
+                        &:hover{
+                            border: 1px solid @woofles_off_canvas_primary_btn_bg_color;
+                            background: @woofles_off_canvas_primary_btn_font_color;
+                            color: @woofles_off_canvas_primary_btn_bg_color;
+                        }
+                    }
+
+                    .btn.button--open-basket{
+                        background: @woofles_off_canvas_secondary_btn_bg_color;
+                        color: @woofles_off_canvas_secondary_btn_font_color;
+                        border: 1px solid @woofles_off_canvas_secondary_btn_border_color;
+                        border-radius: @woofles-border-radius;
+
+                        &:hover{
+                            border: 1px solid @woofles_off_canvas_secondary_btn_bg_color;
+                            background: @woofles_off_canvas_secondary_btn_font_color;
+                            color: @woofles_off_canvas_secondary_btn_bg_color;
+                        }
+                    }
+
+                }
+
+            }
+        }
+    }
+}

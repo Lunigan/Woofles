@@ -19,7 +19,7 @@ body{
                             .woofles--login-popup-wrapper{
                                 background: @woofles_login_popup_bg_color;
                                 border: 1px solid @brand-primary;
-                                border-radius: 3px;
+                                border-radius: @woofles-border-radius;
                                 padding: 10px;
 
                                 .woofles--login-popup-form{
@@ -86,7 +86,7 @@ body{
         z-index: 8500;
         background: @woofles_login_popup_bg_color;
         border: 1px solid @brand-primary;
-        border-radius: 3px;
+        border-radius: @woofles-border-radius;
         transition: 0.5s all;
         padding: 15px;
 
@@ -101,7 +101,7 @@ body{
         .woofles--login-popup-wrapper{
             background: @woofles_login_popup_bg_color;
             border: 1px solid @brand-primary;
-            border-radius: 3px;
+            border-radius: @woofles-border-radius;
 
             .woofles--login-popup-form{
 
@@ -180,15 +180,14 @@ body{
     */
     .woofles--login-window.woofles--login-off_canvas{
         position: fixed;
-        max-width: @woofles_login_popup_width;
+        max-width: @woofles_off_canvas_width;
         width: 100%;
         height: 100%;
         top: 0;
         right: 0;
         z-index: 8500;
-        background: @woofles_login_popup_bg_color;
-        border: 1px solid @brand-primary;
-        border-radius: 0px;
+        background: @woofles_off_canvas_bg_color;
+        border: 1px solid @woofles_off_canvas_border_color;
         transition: 0.5s all;
         padding: 25px;
 
@@ -214,13 +213,13 @@ body{
                         }
 
                         label{
-                            color: @woofles_login_popup_text_color;
+                            color: @woofles_off_canvas_font_color;
                         }
                     }
                 }
 
                 .password a{
-                    color: @woofles_login_popup_text_color;
+                    color: @woofles_off_canvas_font_color;
 
                     &:hover{
                         text-decoration: underline;
@@ -229,13 +228,15 @@ body{
 
                 .action{
                     button{
-                        background: @woofles_login_popup_text_color;
-                        color: @woofles_login_popup_bg_color;
+                        background: @woofles_off_canvas_primary_btn_bg_color;
+                        color: @woofles_off_canvas_primary_btn_font_color;
+                        border: 1px solid @woofles_off_canvas_primary_btn_border_color;
+                        border-radius: @woofles-border-radius;
 
                         &:hover{
-                            border: 1px solid @woofles_login_popup_text_color;
-                            background: @woofles_login_popup_bg_color;
-                            color: @woofles_login_popup_text_color;
+                            border: 1px solid @woofles_off_canvas_primary_btn_bg_color;
+                            background: @woofles_off_canvas_primary_btn_font_color;
+                            color: @woofles_off_canvas_primary_btn_bg_color;
                         }
                     }
                 }
@@ -243,7 +244,7 @@ body{
         }
 
         &.woofles--popup-closed{
-            right: -@woofles_login_popup_width;
+            right: -@woofles_off_canvas_width;
         }
 
         &.woofles--popup-opened{

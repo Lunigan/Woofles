@@ -109,7 +109,7 @@ SHOPWARE_EOD;
             array(
                 'attributes' => array(
                     'layout' => 'column',
-                    'height' => 240,
+                    'height' => 100,
                     'flex' => 0,
                     'defaults' => array(
                         'columnWidth' => 1,
@@ -124,6 +124,84 @@ SHOPWARE_EOD;
             'woofles_service_link_color',
             "Color field",
             "@brand-primary"
+        );
+
+        // Create the fieldset which is the container of our field
+        $woofles_off_canvas_settings = $this->createFieldSet(
+            'woofles_off_canvas_settings',
+            'Off-canvas components',
+            array(
+                'attributes' => array(
+                    'layout' => 'column',
+                    'height' => 600,
+                    'flex' => 0,
+                    'defaults' => array(
+                        'columnWidth' => 1,
+                        'labelWidth' => 250,
+                        'margin' => '2 15 2 0'
+                    )
+                )
+            )
+        );
+
+        $woofles_off_canvas_width = $this->createTextField(
+            'woofles_off_canvas_width',
+            "Off-canvas width",
+            "400px"
+        );
+
+        $woofles_off_canvas_bg_color = $this->createColorPickerField(
+            'woofles_off_canvas_bg_color',
+            "Off-canvas background-color",
+            "@brand-primary"
+        );
+
+        $woofles_off_canvas_border_color = $this->createColorPickerField(
+            'woofles_off_canvas_border_color',
+            "Off-canvas border color",
+            "@brand-primary"
+        );
+
+        $woofles_off_canvas_font_color = $this->createColorPickerField(
+            'woofles_off_canvas_font_color',
+            "Off-canvas font-color",
+            "#FFF"
+        );
+
+        $woofles_off_canvas_primary_btn_bg_color = $this->createColorPickerField(
+            'woofles_off_canvas_primary_btn_bg_color',
+            "Off-canvas primary button background-color",
+            "#FFF"
+        );
+
+        $woofles_off_canvas_primary_btn_border_color = $this->createColorPickerField(
+            'woofles_off_canvas_primary_btn_border_color',
+            "Off-canvas primary button border color",
+            "@brand-primary"
+        );
+
+        $woofles_off_canvas_primary_btn_font_color = $this->createColorPickerField(
+            'woofles_off_canvas_primary_btn_font_color',
+            "Off-canvas primary button font-color",
+            "@brand-primary"
+        );
+
+        $woofles_off_canvas_secondary_btn_bg_color = $this->createColorPickerField(
+            'woofles_off_canvas_secondary_btn_bg_color',
+            "Off-canvas secondary button background-color",
+            "@brand-primary"
+        );
+
+        $woofles_off_canvas_secondary_btn_border_color = $this->createColorPickerField(
+            'woofles_off_canvas_secondary_btn_border_color',
+            "Off-canvas secondary button border color",
+            "#FFF"
+        );
+
+        $woofles_off_canvas_secondary_btn_font_color = $this->createColorPickerField(
+            'woofles_off_canvas_secondary_btn_font_color',
+            "Off-canvas secondary button font-color",
+            "#FFF"
         );
         
         // Create the fieldset which is the container of our field
@@ -290,6 +368,17 @@ SHOPWARE_EOD;
         // Adding the fields to the fieldset
         $woofles_basic_settings->addElement($woofles_service_link_color);
         
+        $woofles_off_canvas_settings->addElement($woofles_off_canvas_bg_color);
+        $woofles_off_canvas_settings->addElement($woofles_off_canvas_width);
+        $woofles_off_canvas_settings->addElement($woofles_off_canvas_border_color);
+        $woofles_off_canvas_settings->addElement($woofles_off_canvas_font_color);
+        $woofles_off_canvas_settings->addElement($woofles_off_canvas_primary_btn_bg_color);
+        $woofles_off_canvas_settings->addElement($woofles_off_canvas_primary_btn_border_color);
+        $woofles_off_canvas_settings->addElement($woofles_off_canvas_primary_btn_font_color);
+        $woofles_off_canvas_settings->addElement($woofles_off_canvas_secondary_btn_bg_color);
+        $woofles_off_canvas_settings->addElement($woofles_off_canvas_secondary_btn_border_color);
+        $woofles_off_canvas_settings->addElement($woofles_off_canvas_secondary_btn_font_color);
+        
         $woofles_login_popup_settings->addElement($woofles_login_popup_enabled);
         $woofles_login_popup_settings->addElement($woofles_login_popup_type);
         $woofles_login_popup_settings->addElement($woofles_login_popup_bg_color);
@@ -313,6 +402,7 @@ SHOPWARE_EOD;
 
         // Adding the fieldset to the tab
         $woofles_general->addElement($woofles_basic_settings);
+        $woofles_general->addElement($woofles_off_canvas_settings);
         $woofles_general->addElement($woofles_login_popup_settings);
         $woofles_general->addElement($woofles_general_scroll_to_top_settings);
         
