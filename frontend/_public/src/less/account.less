@@ -3,7 +3,16 @@ body{
         .header-main{
             .shop--navigation{
                 .navigation--list{
+
                     .navigation--entry.entry--account{
+
+                        .icon--account{
+                            height: 100%;
+                        }
+
+                        /*
+                        --- Styles for pop-up version of login window
+                        */
                         .account--dropdown-navigation.woofles--login-popup-enabled{
                             width: @woofles_login_popup_width;
 
@@ -42,7 +51,7 @@ body{
                                 display: block !important;
                             }
 
-                            &:after{
+                            &.woofles--login-popup:after{
                                 -webkit-transform: rotate(135deg);
                                 transform: rotate(135deg);
                                 width: 8px;
@@ -61,6 +70,184 @@ body{
                     }
                 }
             }
+        }
+    }
+    
+    /*
+    --- Styles for popup version of login window
+    */
+    .woofles--login-window.woofles--login-popup{
+        position: fixed;
+        max-width: @woofles_login_popup_width;
+        width: 100%;
+        height: auto;
+        top: 70px;
+        right: ~"calc((100vw - 1260px) / 2 + 115px)";
+        z-index: 8500;
+        background: @woofles_login_popup_bg_color;
+        border: 1px solid @brand-primary;
+        border-radius: 3px;
+        transition: 0.5s all;
+        padding: 15px;
+
+        @media screen and (max-width: 1259px) and (min-width: 1024px){
+            right: 126px;
+        }
+
+        @media screen and (max-width: 1023px) and (min-width: 768px){
+            right: 60px;
+        }
+
+        .woofles--login-popup-wrapper{
+            background: @woofles_login_popup_bg_color;
+            border: 1px solid @brand-primary;
+            border-radius: 3px;
+
+            .woofles--login-popup-form{
+
+                fieldset{
+                    width: 100%;
+                    min-width: unset;
+                    border: none;
+                    padding: 0;
+                    margin: 0;
+
+                    p{
+                        input{
+                            width: 100%;
+                        }
+
+                        &.none{
+                            margin-bottom: 5px;
+                        }
+
+                        label{
+                            color: @woofles_login_popup_text_color;
+                        }
+                    }
+                }
+
+                .password a{
+                    color: @woofles_login_popup_text_color;
+
+                    &:hover{
+                        text-decoration: underline;
+                    }
+                }
+
+                .action{
+                    button{
+                        background: @woofles_login_popup_text_color;
+                        color: @woofles_login_popup_bg_color;
+
+                        &:hover{
+                            border: 1px solid @woofles_login_popup_text_color;
+                            background: @woofles_login_popup_bg_color;
+                            color: @woofles_login_popup_text_color;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.woofles--popup-closed{
+            display: none !important;
+        }
+
+        &.woofles--popup-opened{
+            display: block !important;
+        }
+
+        &.woofles--login-popup:after{
+            -webkit-transform: rotate(135deg);
+            transform: rotate(135deg);
+            width: 8px;
+            height: 8px;
+            right: 18px;
+            content: '';
+            display: block;
+            position: absolute;
+            background: @woofles_login_popup_bg_color;
+            border-color: @brand-primary;
+            border-width: 0 0 1px 1px;
+            border-style: solid;
+            top: -5px;
+        }
+    }
+
+    /*
+    --- Styles for off-canvas version of login window
+    */
+    .woofles--login-window.woofles--login-off_canvas{
+        position: fixed;
+        max-width: @woofles_login_popup_width;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        right: 0;
+        z-index: 8500;
+        background: @woofles_login_popup_bg_color;
+        border: 1px solid @brand-primary;
+        border-radius: 0px;
+        transition: 0.5s all;
+        padding: 25px;
+
+        .woofles--login-popup-wrapper{
+            padding: 10px;
+
+            .woofles--login-popup-form{
+
+                fieldset{
+                    width: 100%;
+                    min-width: unset;
+                    border: none;
+                    padding: 0;
+                    margin: 0;
+
+                    p{
+                        input{
+                            width: 100%;
+                        }
+
+                        &.none{
+                            margin-bottom: 5px;
+                        }
+
+                        label{
+                            color: @woofles_login_popup_text_color;
+                        }
+                    }
+                }
+
+                .password a{
+                    color: @woofles_login_popup_text_color;
+
+                    &:hover{
+                        text-decoration: underline;
+                    }
+                }
+
+                .action{
+                    button{
+                        background: @woofles_login_popup_text_color;
+                        color: @woofles_login_popup_bg_color;
+
+                        &:hover{
+                            border: 1px solid @woofles_login_popup_text_color;
+                            background: @woofles_login_popup_bg_color;
+                            color: @woofles_login_popup_text_color;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.woofles--popup-closed{
+            right: -@woofles_login_popup_width;
+        }
+
+        &.woofles--popup-opened{
+            right: 0;
         }
     }
 }

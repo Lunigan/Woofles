@@ -112,7 +112,7 @@
         {block name='woofles_flyin_banner'}
 
             {if $theme.woofles_flyin_is_enabled == 1}
-                <div class="woofles--flyin-banner-wrapper woofles--flyin-position-{if $theme.woofles_flyin_position}{$theme.woofles_flyin_position}{/if} w--is-closed">
+                <div class="woofles--flyin-banner-wrapper woofles--flyin-position-{if $theme.woofles_flyin_position}{$theme.woofles_flyin_position}{/if} woofles--popup-closed">
 
                     <div class="woofles--flyin-banner-label-wrapper">
                         <div class="woofles--flyin-banner-label-content{if $theme.woofles_flyin_label_uppercase} woofles--text-uppercase{/if}">
@@ -165,10 +165,64 @@
 
 {/block}
 
+{*
+---This block contains Scroll-To-Top structure
+*}
 {block name='frontend_index_body_inline' append}
     <div class="woofles--scroll-to-top-btn">
         <a href="#top">
             <i class="icon--arrow-up"></i>
         </a>
     </div>
+{/block}
+
+{*
+---This block contains login window structure
+*}
+{block name='frontend_index_body_inline' append}
+
+    {if $theme.woofles_login_popup_enabled == 1}
+    
+        <div class="woofles--login-window woofles--login-{$theme.woofles_login_popup_type} woofles--popup-closed">
+            <div class="woofles--login-popup-wrapper">
+                <div class="woofles--login-popup-form">
+                    <form name="sLogin" method="post" action="{url controller='account' action='login' sTarget='account' sTargetAction='index'}">
+                        {if $sTarget}<input name="sTarget" type="hidden" value="{$sTarget|escape}" />{/if}
+                        <fieldset>
+                            <p>
+                                <label for="email">{s name='LoginLabelMail' namespace="frontend/account/login"}{/s}</label>
+                                <input name="email" type="email" autocomplete="email" tabindex="1" value="{$sFormData.email|escape}" id="email2" class="text {if $sErrorFlag.email}instyle_error{/if}" />
+                            </p>
+                            <p class="none">
+                                <label for="passwort">{s name="LoginLabelPassword" namespace="frontend/account/login"}{/s}</label>
+                                <input name="password" type="password" autocomplete="current-password" tabindex="2" id="passwort2" class="text {if $sErrorFlag.password}instyle_error{/if}" />
+                            </p>
+                        </fieldset>
+
+                        <p class="password">
+                            <a href="{url action=password}" title="{"{s name='LoginLinkLostPassword' namespace="frontend/account/login"}{/s}"|escape}">
+                                {s name="LoginLinkLostPassword" namespace="frontend/account/login"}{/s}
+                            </a>
+                        </p>
+                        <div class="action">
+                            <button class="btn is--primary is--large is--icon-right" type="submit" name="Submit">
+                                {s name='LoginLinkLogon' namespace="frontend/account/login"}{/s}
+                                <i class="icon--arrow-right"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>    
+    {/if}
+
+{/block}
+
+{*
+---This block contains overlay skeleton
+*}
+{block name='frontend_index_body_inline' append}
+
+    <div class="woofles--popup-overlay"></div>
+
 {/block}

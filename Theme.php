@@ -29,7 +29,8 @@ SHOPWARE_EOD;
     protected $javascript = array(
         'src/js/navigation.js',
         'src/js/account.js',
-        'src/js/flyin.js'
+        'src/js/flyin.js',
+        'src/js/woofles.js'
     );
     
 
@@ -100,11 +101,35 @@ SHOPWARE_EOD;
                 ],
             ]
         );
+
+        // Create the fieldset which is the container of our field
+        $woofles_basic_settings = $this->createFieldSet(
+            'woofles_basic_settings',
+            'Basic settings',
+            array(
+                'attributes' => array(
+                    'layout' => 'column',
+                    'height' => 240,
+                    'flex' => 0,
+                    'defaults' => array(
+                        'columnWidth' => 1,
+                        'labelWidth' => 250,
+                        'margin' => '2 15 2 0'
+                    )
+                )
+            )
+        );
+
+        $woofles_service_link_color = $this->createColorPickerField(
+            'woofles_service_link_color',
+            "Color field",
+            "@brand-primary"
+        );
         
         // Create the fieldset which is the container of our field
-        $woofles_general_settings = $this->createFieldSet(
-            'woofles_general_settings',
-            'General theme settings',
+        $woofles_login_popup_settings = $this->createFieldSet(
+            'woofles_login_popup_settings',
+            'Login pop-up settings',
             array(
                 'attributes' => array(
                     'layout' => 'column',
@@ -125,16 +150,39 @@ SHOPWARE_EOD;
             true
         );
 
+        $woofles_login_popup_type = $this->createSelectField(
+            'woofles_login_popup_type',
+            'Select login pop-up variant',
+            'off_canvas',
+            array(
+                ['text' => 'Pop-up', 'value' => 'popup'],
+                ['text' => 'Fly-In off canvas', 'value' => 'off_canvas']
+                )
+            
+        );
+
         $woofles_login_popup_bg_color = $this->createColorPickerField(
             'woofles_login_popup_bg_color',
             "Login pop-up background color",
-            "@brand-secondary"
+            "@brand-primary"
+        );
+
+        $woofles_login_popup_border_color = $this->createColorPickerField(
+            'woofles_login_popup_border_color',
+            "Login pop-up border color",
+            "@brand-primary"
+        );
+
+        $woofles_login_popup_text_color = $this->createColorPickerField(
+            'woofles_login_popup_text_color',
+            "Login pop-up text color",
+            "#FFF"
         );
 
         $woofles_login_popup_width = $this->createTextField(
             'woofles_login_popup_width',
             "Login pop-up width",
-            "320px"
+            "400px"
         );
         
         //////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -240,9 +288,14 @@ SHOPWARE_EOD;
         //////////////////////////////////////////////////////////////////////////////////////////////////////
 
         // Adding the fields to the fieldset
-        $woofles_general_settings->addElement($woofles_login_popup_enabled);
-        $woofles_general_settings->addElement($woofles_login_popup_bg_color);
-        $woofles_general_settings->addElement($woofles_login_popup_width);
+        $woofles_basic_settings->addElement($woofles_service_link_color);
+        
+        $woofles_login_popup_settings->addElement($woofles_login_popup_enabled);
+        $woofles_login_popup_settings->addElement($woofles_login_popup_type);
+        $woofles_login_popup_settings->addElement($woofles_login_popup_bg_color);
+        $woofles_login_popup_settings->addElement($woofles_login_popup_border_color);
+        $woofles_login_popup_settings->addElement($woofles_login_popup_text_color);
+        $woofles_login_popup_settings->addElement($woofles_login_popup_width);
 
         $woofles_general_scroll_to_top_settings->addElement($woofles_general_scroll_to_top_is_enabled);
         $woofles_general_scroll_to_top_settings->addElement($woofles_general_scroll_to_top_width);
@@ -259,7 +312,8 @@ SHOPWARE_EOD;
         $woofles_general_scroll_to_top_settings->addElement($woofles_general_scroll_to_top_font_size);
 
         // Adding the fieldset to the tab
-        $woofles_general->addElement($woofles_general_settings);
+        $woofles_general->addElement($woofles_basic_settings);
+        $woofles_general->addElement($woofles_login_popup_settings);
         $woofles_general->addElement($woofles_general_scroll_to_top_settings);
         
         return $woofles_general;
@@ -303,24 +357,10 @@ SHOPWARE_EOD;
         );
 
         // Create the checkbox
-        $woofles_display_header_logo_text = $this->createCheckboxField(
-            'woofles_display_header_logo_text',
-            'Display text next to shop logo',
-            false
-        );
-
-        // Create the textfield
-        $woofles_header_logo_text = $this->createTextField(
-            'woofles_header_logo_text',
-            'Header text next to shop logo',
-            ''
-        );
-        
-        // Create the textfield
-        $woofles_header_logo_text_color = $this->createColorPickerField(
-            'woofles_header_logo_text_color',
-            'Color of header text next to shop logo',
-            '@brand-primary'
+        $woofles_header_homepage_in_navigation = $this->createCheckboxField(
+            'woofles_header_homepage_in_navigation',
+            'Add homepage to navigation',
+            true
         );
 
         /////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -396,9 +436,7 @@ SHOPWARE_EOD;
         $woofles_sticky_header_hide_navigation->setHelp("Works ONLY with sticky-header turned ON");
 
         // Adding the fields to the fieldset
-        $woofles_header_basic_settings->addElement($woofles_display_header_logo_text);
-        $woofles_header_basic_settings->addElement($woofles_header_logo_text);
-        $woofles_header_basic_settings->addElement($woofles_header_logo_text_color);
+        $woofles_header_basic_settings->addElement($woofles_header_homepage_in_navigation);
         
         $woofles_header_sticky_settings->addElement($woofles_sticky_header_is_enabled);
         $woofles_header_sticky_settings->addElement($woofles_sticky_header_hide_navigation);
@@ -484,6 +522,12 @@ SHOPWARE_EOD;
             'darken(@brand-primary, 20%)'
         );
 
+        $woofles_footer_links__hover_color = $this->createColorPickerField(
+            'woofles_footer_links__hover_color',
+            'Links hover-color',
+            '@brand-primary'
+        );
+
         $woofles_footer_phone_size = $this->createTextField(
             'woofles_footer_phone_size',
             'Phone font-size',
@@ -494,6 +538,12 @@ SHOPWARE_EOD;
             'woofles_footer_phone_weight',
             'Phone font-size',
             '600'
+        );
+
+        $woofles_footer_newsletter_text_size = $this->createTextField(
+            'woofles_footer_newsletter_text_size',
+            'Newsletter text font-size',
+            '14px'
         );
 
         $woofles_footer_bg_color = $this->createColorPickerField(
@@ -510,8 +560,10 @@ SHOPWARE_EOD;
         $woofles_footer_basic_settings->addElement($woofles_footer_links_size);
         $woofles_footer_basic_settings->addElement($woofles_footer_links_weight);
         $woofles_footer_basic_settings->addElement($woofles_footer_links_color);
+        $woofles_footer_basic_settings->addElement($woofles_footer_links__hover_color);
         $woofles_footer_basic_settings->addElement($woofles_footer_phone_size);
         $woofles_footer_basic_settings->addElement($woofles_footer_phone_weight);
+        $woofles_footer_basic_settings->addElement($woofles_footer_newsletter_text_size);
         $woofles_footer_basic_settings->addElement($woofles_footer_bg_color);
 
         // Adding the fieldset to the tab

@@ -34,6 +34,10 @@ body{
                                         font-size: @woofles_footer_links_size;
                                         font-weight: @woofles_footer_links_weight;
                                         color: @woofles_footer_links_color;
+
+                                        &:hover{
+                                            color: @woofles_footer_links__hover_color;
+                                        }
                                     }
                                 }
                             }
@@ -42,6 +46,26 @@ body{
                                 color: @woofles_footer_links_color;
                                 font-size: @woofles_footer_phone_size;
                                 font-weight: @woofles_footer_phone_weight;
+
+                                &:hover{
+                                    color: @woofles_footer_links__hover_color;
+                                }
+                            }
+                        }
+
+                        &.column--newsletter .column--content {
+
+                            .column--desc{
+                                font-size: @woofles_footer_newsletter_text_size;
+                            }
+
+                            .newsletter--form .privacy-information{
+                                font-size: @woofles_footer_newsletter_text_size;
+
+                                a:hover{
+                                    color: @woofles_footer_links__hover_color;
+                                    text-decoration: underline;
+                                }
                             }
                         }
                     }

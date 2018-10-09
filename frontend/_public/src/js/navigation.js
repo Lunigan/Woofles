@@ -19,3 +19,19 @@ $('body.woofles--hide-navigation-on-scroll').on('mousewheel', function(e){
         $('.woofles--header-wrapper .header-main').addClass('woofles--nav-hidden');
     }
 });
+
+/**
+ * Toggle "?" link list
+ */
+$(".navigation--entry.woofles--entry--service").click(function(event){
+    // console.log(event);
+    if (event.target.nodeName === "I" && event.target.className === "icon--service"){
+        if($(".woofles--entry--service .service--list").hasClass("woofles--popup-closed")) {
+            $(".woofles--entry--service .service--list").removeClass("woofles--popup-closed");
+            $(".woofles--entry--service .service--list").addClass("woofles--popup-opened");
+        } else {
+            $(".woofles--entry--service .service--list").removeClass("woofles--popup-opened");
+            $(".woofles--entry--service .service--list").addClass("woofles--popup-closed");
+        }
+    }
+})
