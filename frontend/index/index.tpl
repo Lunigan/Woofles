@@ -184,6 +184,11 @@
     {if $theme.woofles_login_popup_enabled == 1}
     
         <div class="woofles--login-window woofles--login-{$theme.woofles_login_popup_type} woofles--popup-closed">
+
+            <div class="woofles--close-off-canvas-window">
+                <i class="icon--arrow-left"></i><span>{s namespace='frontend/detail/description' name='OffcanvasCloseMenu'}{/s}</span>
+            </div>
+
             <div class="woofles--login-popup-wrapper">
                 <div class="woofles--login-popup-form">
                     <form name="sLogin" method="post" action="{url controller='account' action='login' sTarget='account' sTargetAction='index'}">

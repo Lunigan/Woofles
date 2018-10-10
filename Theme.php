@@ -370,7 +370,7 @@ SHOPWARE_EOD;
         
         $woofles_off_canvas_settings->addElement($woofles_off_canvas_bg_color);
         $woofles_off_canvas_settings->addElement($woofles_off_canvas_width);
-        $woofles_off_canvas_settings->addElement($woofles_off_canvas_border_color);
+        // $woofles_off_canvas_settings->addElement($woofles_off_canvas_border_color);
         $woofles_off_canvas_settings->addElement($woofles_off_canvas_font_color);
         $woofles_off_canvas_settings->addElement($woofles_off_canvas_primary_btn_bg_color);
         $woofles_off_canvas_settings->addElement($woofles_off_canvas_primary_btn_border_color);

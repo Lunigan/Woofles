@@ -98,6 +98,10 @@ body{
             right: 60px;
         }
 
+        .woofles--close-off-canvas-window{
+            display: none;
+        }
+
         .woofles--login-popup-wrapper{
             background: @woofles_login_popup_bg_color;
             border: 1px solid @brand-primary;
@@ -187,12 +191,35 @@ body{
         right: 0;
         z-index: 8500;
         background: @woofles_off_canvas_bg_color;
-        border: 1px solid @woofles_off_canvas_border_color;
+        // border: 1px solid @woofles_off_canvas_border_color;
         transition: 0.5s all;
-        padding: 25px;
+
+        .woofles--close-off-canvas-window{
+            background: lighten(@woofles_off_canvas_bg_color, 20%);
+            height: 40px;
+            width: 100%;
+            padding: 10px;
+            padding-left: 10px;
+            padding-right: 35px;
+            cursor: pointer;
+
+            i{
+                font-size: 11px;
+                margin-right: 15px;
+                color: @woofles_off_canvas_font_color
+            }
+
+            span{
+                line-height: 20px;
+                color: @woofles_off_canvas_font_color;
+                font-weight: bold;
+            }
+        }
 
         .woofles--login-popup-wrapper{
             padding: 10px;
+            padding-left: 35px;
+            padding-right: 35px;
 
             .woofles--login-popup-form{
 
