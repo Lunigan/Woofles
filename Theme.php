@@ -30,7 +30,8 @@ SHOPWARE_EOD;
         'src/js/navigation.js',
         'src/js/account.js',
         'src/js/flyin.js',
-        'src/js/woofles.js'
+        'src/js/woofles.js',
+        'src/js/off-canvas.js'
     );
     
 
