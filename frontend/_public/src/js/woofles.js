@@ -1,4 +1,10 @@
-// If an event gets to the body
+/****
+-----This Javascript file contains all general functions and events.
+****/
+
+/**
+ * This event is responsible for hiding off-canvas window on click anywhere outside the window.
+ */
 $("body").click(function(){
 
     $('.woofles--popup-opened').each(function(){

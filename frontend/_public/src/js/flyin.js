@@ -1,6 +1,11 @@
+/****
+-----This Javascript file contains all functions and events
+-----manipulating with fly-in component and its child-elements.
+****/
+
 /**
  * Script that controlls fly-in visibility and arrow direction.
- * It makes fly-in to fly in ;) (or out)
+ * It makes fly-in to fly in ;) (or out).
  */
 $(".woofles--flyin-banner-label-wrapper").click(function(){
     if($(".woofles--flyin-banner-wrapper").hasClass("woofles--popup-closed")){
@@ -10,10 +15,17 @@ $(".woofles--flyin-banner-label-wrapper").click(function(){
     }
 })
 
+/**
+ * Event that detects click inside of the "fly-in" element and stops it 
+ * before it  reaches the event on "body" which would close the "fly-in".
+ */
 $(".woofles--flyin-banner-wrapper").click(function(event){
     event.stopPropagation();
 })
 
+/**
+ * This function handles classes management to make "fly-in" visible.
+ */
 function ShowFlyIn(){
     //OPEN/SHOW
     $(".woofles--flyin-banner-wrapper").removeClass("woofles--popup-closed");
@@ -33,6 +45,9 @@ function ShowFlyIn(){
     $(".woofles--flyin-position-left .woofles--flyin-banner-label-wrapper i").addClass("icon--arrow-left");
 }
 
+/**
+ * This function handles classes management to make "fly-in" hidden.
+ */
 function HideFlyIn(){
     //CLOSE/HIDE
     $(".woofles--flyin-banner-wrapper").removeClass("woofles--popup-opened");

@@ -1,4 +1,11 @@
+/****
+-----This Javascript file contains all functions and events
+-----manipulating with off-canvas components and their child-elements.
+****/
 
+/**
+ * This event handles opening/closing of login window + overlay in case of off-canvas version.
+ */
 $(".navigation--entry.entry--account .icon--account").click(function(event){
     
     if($(".woofles--login-window").hasClass("woofles--popup-closed")) {
@@ -17,15 +24,10 @@ $(".navigation--entry.entry--account .icon--account").click(function(event){
     event.stopPropagation();
 })
 
+/**
+ * Event that detects click inside of the login window and stops it 
+ * before it  reaches the event on "body" which would close the the login window.
+ */
 $(".woofles--login-window").click(function(event){
     event.stopPropagation();
 })
-
-// If an event gets to the body
-$("body").click(function(){
-    $('.woofles--popup-opened').each(function(){
-        $(this).addClass('woofles--popup-closed');
-        $(this).removeClass('woofles--popup-opened');
-    })
-    $('.woofles--popup-overlay').fadeOut();
-});

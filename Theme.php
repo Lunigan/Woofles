@@ -35,6 +35,9 @@ SHOPWARE_EOD;
     );
     
 
+    /**
+     * Function responsible for creation of backend configuration.
+     */
     public function createConfig(Form\Container\TabContainer $container)
     {
         /** Main configuration tab */
@@ -93,6 +96,7 @@ SHOPWARE_EOD;
      */
     private function createGeneralTabConfig(){
         
+        // Create the tab object
         $woofles_general = $this->createTab(
             'woofles_general',
             'General',
@@ -102,6 +106,9 @@ SHOPWARE_EOD;
                 ],
             ]
         );
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         // Create the fieldset which is the container of our field
         $woofles_basic_settings = $this->createFieldSet(
@@ -121,11 +128,18 @@ SHOPWARE_EOD;
             )
         );
 
+        // Creating fields for "Basic settings"
         $woofles_service_link_color = $this->createColorPickerField(
             'woofles_service_link_color',
             "Color field",
             "@brand-primary"
         );
+
+        
+        // Adding the fields to the fieldset
+        $woofles_basic_settings->addElement($woofles_service_link_color);
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         // Create the fieldset which is the container of our field
         $woofles_off_canvas_settings = $this->createFieldSet(
@@ -145,6 +159,7 @@ SHOPWARE_EOD;
             )
         );
 
+        // Creating fields for "Off-canvas components"
         $woofles_off_canvas_width = $this->createTextField(
             'woofles_off_canvas_width',
             "Off-canvas width",
@@ -205,6 +220,20 @@ SHOPWARE_EOD;
             "#FFF"
         );
         
+        // Adding the fields to the fieldset
+        $woofles_off_canvas_settings->addElement($woofles_off_canvas_bg_color);
+        $woofles_off_canvas_settings->addElement($woofles_off_canvas_width);
+        // $woofles_off_canvas_settings->addElement($woofles_off_canvas_border_color);
+        $woofles_off_canvas_settings->addElement($woofles_off_canvas_font_color);
+        $woofles_off_canvas_settings->addElement($woofles_off_canvas_primary_btn_bg_color);
+        $woofles_off_canvas_settings->addElement($woofles_off_canvas_primary_btn_border_color);
+        $woofles_off_canvas_settings->addElement($woofles_off_canvas_primary_btn_font_color);
+        $woofles_off_canvas_settings->addElement($woofles_off_canvas_secondary_btn_bg_color);
+        $woofles_off_canvas_settings->addElement($woofles_off_canvas_secondary_btn_border_color);
+        $woofles_off_canvas_settings->addElement($woofles_off_canvas_secondary_btn_font_color);
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
         // Create the fieldset which is the container of our field
         $woofles_login_popup_settings = $this->createFieldSet(
             'woofles_login_popup_settings',
@@ -223,6 +252,7 @@ SHOPWARE_EOD;
             )
         );
 
+        // Creating fields for "Login pop-up settings"
         $woofles_login_popup_enabled = $this->createCheckboxField(
             'woofles_login_popup_enabled',
             "Login by pop-up",
@@ -264,8 +294,17 @@ SHOPWARE_EOD;
             "400px"
         );
         
-        //////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Adding the fields to the fieldset
+        $woofles_login_popup_settings->addElement($woofles_login_popup_enabled);
+        $woofles_login_popup_settings->addElement($woofles_login_popup_type);
+        $woofles_login_popup_settings->addElement($woofles_login_popup_bg_color);
+        $woofles_login_popup_settings->addElement($woofles_login_popup_border_color);
+        $woofles_login_popup_settings->addElement($woofles_login_popup_text_color);
+        $woofles_login_popup_settings->addElement($woofles_login_popup_width);
         
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
+        // Create the fieldset which is the container of our field
         $woofles_general_scroll_to_top_settings = $this->createFieldSet(
             'woofles_general_scroll_to_top_settings',
             'Scroll-To-Top settings',
@@ -283,6 +322,7 @@ SHOPWARE_EOD;
             )
         );
         
+        // Creating fields for "Scroll-To-Top settings"
         $woofles_general_scroll_to_top_is_enabled = $this->createCheckboxField(
             'woofles_general_scroll_to_top_is_enabled',
             "Scroll-To-Top is enabled",
@@ -362,31 +402,7 @@ SHOPWARE_EOD;
             "8px"
         );
         
-        //////////////////////////////////////////////////////////////////////////////////////////////////////
-        //////////////////////////////////////////////////////////////////////////////////////////////////////
-        //////////////////////////////////////////////////////////////////////////////////////////////////////
-
         // Adding the fields to the fieldset
-        $woofles_basic_settings->addElement($woofles_service_link_color);
-        
-        $woofles_off_canvas_settings->addElement($woofles_off_canvas_bg_color);
-        $woofles_off_canvas_settings->addElement($woofles_off_canvas_width);
-        // $woofles_off_canvas_settings->addElement($woofles_off_canvas_border_color);
-        $woofles_off_canvas_settings->addElement($woofles_off_canvas_font_color);
-        $woofles_off_canvas_settings->addElement($woofles_off_canvas_primary_btn_bg_color);
-        $woofles_off_canvas_settings->addElement($woofles_off_canvas_primary_btn_border_color);
-        $woofles_off_canvas_settings->addElement($woofles_off_canvas_primary_btn_font_color);
-        $woofles_off_canvas_settings->addElement($woofles_off_canvas_secondary_btn_bg_color);
-        $woofles_off_canvas_settings->addElement($woofles_off_canvas_secondary_btn_border_color);
-        $woofles_off_canvas_settings->addElement($woofles_off_canvas_secondary_btn_font_color);
-        
-        $woofles_login_popup_settings->addElement($woofles_login_popup_enabled);
-        $woofles_login_popup_settings->addElement($woofles_login_popup_type);
-        $woofles_login_popup_settings->addElement($woofles_login_popup_bg_color);
-        $woofles_login_popup_settings->addElement($woofles_login_popup_border_color);
-        $woofles_login_popup_settings->addElement($woofles_login_popup_text_color);
-        $woofles_login_popup_settings->addElement($woofles_login_popup_width);
-
         $woofles_general_scroll_to_top_settings->addElement($woofles_general_scroll_to_top_is_enabled);
         $woofles_general_scroll_to_top_settings->addElement($woofles_general_scroll_to_top_width);
         $woofles_general_scroll_to_top_settings->addElement($woofles_general_scroll_to_top_height);
@@ -401,7 +417,10 @@ SHOPWARE_EOD;
         $woofles_general_scroll_to_top_settings->addElement($woofles_general_scroll_to_top_border_color_hover);
         $woofles_general_scroll_to_top_settings->addElement($woofles_general_scroll_to_top_font_size);
 
-        // Adding the fieldset to the tab
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
+        // Adding the fieldsets to the tab
         $woofles_general->addElement($woofles_basic_settings);
         $woofles_general->addElement($woofles_off_canvas_settings);
         $woofles_general->addElement($woofles_login_popup_settings);
@@ -417,6 +436,7 @@ SHOPWARE_EOD;
      */
     private function createHeaderTabConfig(){
         
+        // Create the tab object
         $woofles_header = $this->createTab(
             'woofles_header',
             'Header',
@@ -427,7 +447,8 @@ SHOPWARE_EOD;
             ]
         );
 
-        /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         
         // Create the fieldset which is the container of our field
         $woofles_header_basic_settings = $this->createFieldSet(
@@ -447,14 +468,17 @@ SHOPWARE_EOD;
             )
         );
 
-        // Create the checkbox
+        // Creating fields for "Header basic settings"
         $woofles_header_homepage_in_navigation = $this->createCheckboxField(
             'woofles_header_homepage_in_navigation',
             'Add homepage to navigation',
             true
         );
 
-        /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Adding the fields to the fieldset
+        $woofles_header_basic_settings->addElement($woofles_header_homepage_in_navigation);
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         
         // Create the fieldset which is the container of our field
         $woofles_header_sticky_settings = $this->createFieldSet(
@@ -474,21 +498,26 @@ SHOPWARE_EOD;
             )
         );
         
-        // Create the checkbox
+        // Creating fields for "Sticky-header settings"
         $woofles_sticky_header_is_enabled = $this->createCheckboxField(
             'woofles_sticky_header_is_enabled',
             'Enable sticky-header',
             true
         );
         
-        // Create the checkbox
+        
         $woofles_sticky_header_hide_navigation = $this->createCheckboxField(
             'woofles_sticky_header_hide_navigation',
             'Hide navigation on scroll-down',
             true
         );
+        $woofles_sticky_header_hide_navigation->setHelp("Works ONLY with sticky-header turned ON");
 
-        /////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Adding the fields to the fieldset
+        $woofles_header_sticky_settings->addElement($woofles_sticky_header_is_enabled);
+        $woofles_header_sticky_settings->addElement($woofles_sticky_header_hide_navigation);
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         // Create the fieldset which is the container of our field
         $woofles_header_icons_settings = $this->createFieldSet(
@@ -508,32 +537,25 @@ SHOPWARE_EOD;
             )
         );
         
-        // Create the checkbox
+        // Creating fields for "Header icons settings"
         $woofles_header_account_icon_only = $this->createCheckboxField(
             'woofles_header_account_icon_only',
             'My account icon-only',
             true
         );
-        
-        // Create the checkbox
+
         $woofles_header_service_in_topbar = $this->createCheckboxField(
             'woofles_header_service_in_topbar',
             'Show "Service/Help" in Topbar',
             true
         );
 
-        /////////////////////////////////////////////////////////////////////////////////////////////////////////////
-        
-        $woofles_sticky_header_hide_navigation->setHelp("Works ONLY with sticky-header turned ON");
-
         // Adding the fields to the fieldset
-        $woofles_header_basic_settings->addElement($woofles_header_homepage_in_navigation);
-        
-        $woofles_header_sticky_settings->addElement($woofles_sticky_header_is_enabled);
-        $woofles_header_sticky_settings->addElement($woofles_sticky_header_hide_navigation);
-
         $woofles_header_icons_settings->addElement($woofles_header_account_icon_only);
         $woofles_header_icons_settings->addElement($woofles_header_service_in_topbar);
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         
         // Adding the fieldset to the tab
         $woofles_header->addElement($woofles_header_basic_settings);
@@ -550,6 +572,7 @@ SHOPWARE_EOD;
      */
     private function createFooterTabConfig(){
         
+        // Create the tab object
         $woofles_footer = $this->createTab(
             'woofles_footer',
             'Footer',
@@ -559,6 +582,9 @@ SHOPWARE_EOD;
                 ],
             ]
         );
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         
         // Create the fieldset which is the container of our field
         $woofles_footer_basic_settings = $this->createFieldSet(
@@ -577,6 +603,7 @@ SHOPWARE_EOD;
             )
         );
 
+        // Creating fields for "Footer basic settings"
         $woofles_footer_headlines_size = $this->createTextField(
             'woofles_footer_headlines_size',
             'Column headlines font-size',
@@ -642,7 +669,6 @@ SHOPWARE_EOD;
             'Footer background-color',
             'lighten(@brand-secondary, 30%)'
         );
-        
 
         // Adding the fields to the fieldset
         $woofles_footer_basic_settings->addElement($woofles_footer_headlines_size);
@@ -657,6 +683,9 @@ SHOPWARE_EOD;
         $woofles_footer_basic_settings->addElement($woofles_footer_newsletter_text_size);
         $woofles_footer_basic_settings->addElement($woofles_footer_bg_color);
 
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
         // Adding the fieldset to the tab
         $woofles_footer->addElement($woofles_footer_basic_settings);
         
@@ -670,6 +699,7 @@ SHOPWARE_EOD;
      */
     private function createHomepageTabConfig(){
         
+        // Create the tab object
         $woofles_homepage = $this->createTab(
             'woofles_homepage',
             'Homepage',
@@ -679,6 +709,9 @@ SHOPWARE_EOD;
                 ],
             ]
         );
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         
         // Create the fieldset which is the container of our field
         $woofles_homepage_basic_settings = $this->createFieldSet(
@@ -697,14 +730,13 @@ SHOPWARE_EOD;
             )
         );
         
-        // Create the checkbox
+        // Creating fields for "Homepage basic settings"
         $woofles_homepage_emotion_is_full_width = $this->createCheckboxField(
             'woofles_homepage_emotion_is_full_width',
             "100% width emotions on homepage",
             true
         );
 
-        // Create the textfield
         $woofles_homepage_emotion_width = $this->createTextField(
             'woofles_homepage_emotion_width',
             'Shopping worlds width on homepage',
@@ -714,6 +746,10 @@ SHOPWARE_EOD;
         // Adding the fields to the fieldset
         $woofles_homepage_basic_settings->addElement($woofles_homepage_emotion_is_full_width);
         $woofles_homepage_basic_settings->addElement($woofles_homepage_emotion_width);
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
         // Adding the fieldset to the tab
         $woofles_homepage->addElement($woofles_homepage_basic_settings);
         
@@ -727,6 +763,7 @@ SHOPWARE_EOD;
      */
     private function createListingTabConfig(){
         
+        // Create the tab object
         $woofles_listing = $this->createTab(
             'woofles_listing',
             'Product listing',
@@ -736,6 +773,9 @@ SHOPWARE_EOD;
                 ],
             ]
         );
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         
         // Create the fieldset which is the container of our field
         $woofles_listing_topseller_settings = $this->createFieldSet(
@@ -754,6 +794,25 @@ SHOPWARE_EOD;
                 )
             )
         );
+
+        // Creating fields for "Listing topseller settings"
+        $woofles_listing_display_topseller_on_firstpage = $this->createCheckboxField(
+            'woofles_listing_display_topseller_on_firstpage',
+            'Show TopSeller on first page of listing',
+            true
+        );
+        
+        $woofles_listing_display_topseller_on_firstpage_only = $this->createCheckboxField(
+            'woofles_listing_display_topseller_on_firstpage_only',
+            'Show TopSeller ONLY on first page of listing',
+            true
+        );
+
+        // Adding the fields to the fieldset
+        $woofles_listing_topseller_settings->addElement($woofles_listing_display_topseller_on_firstpage);
+        $woofles_listing_topseller_settings->addElement($woofles_listing_display_topseller_on_firstpage_only);
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         
         // Create the fieldset which is the container of our field
         $woofles_listing_boxes_settings = $this->createFieldSet(
@@ -772,20 +831,8 @@ SHOPWARE_EOD;
                 )
             )
         );
-
         
-        $woofles_listing_display_topseller_on_firstpage = $this->createCheckboxField(
-            'woofles_listing_display_topseller_on_firstpage',
-            'Show TopSeller on first page of listing',
-            true
-        );
-        
-        $woofles_listing_display_topseller_on_firstpage_only = $this->createCheckboxField(
-            'woofles_listing_display_topseller_on_firstpage_only',
-            'Show TopSeller ONLY on first page of listing',
-            true
-        );
-        
+        // Creating fields for "Listing product-boxes settings"
         $woofles_listing_boxes_price_color = $this->createColorPickerField(
             'woofles_listing_boxes_price_color',
             'Product-box price color',
@@ -805,12 +852,12 @@ SHOPWARE_EOD;
         );
 
         // Adding the fields to the fieldset
-        $woofles_listing_topseller_settings->addElement($woofles_listing_display_topseller_on_firstpage);
-        $woofles_listing_topseller_settings->addElement($woofles_listing_display_topseller_on_firstpage_only);
-        
         $woofles_listing_boxes_settings->addElement($woofles_listing_boxes_price_color);
         $woofles_listing_boxes_settings->addElement($woofles_listing_boxes_pseudoprice_color);
         $woofles_listing_boxes_settings->addElement($woofles_listing_boxes_default_price_color);
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         
         // Adding the fieldset to the tab
         $woofles_listing->addElement($woofles_listing_topseller_settings);
@@ -826,6 +873,7 @@ SHOPWARE_EOD;
      */
     private function createDetailTabConfig(){
         
+        // Create the tab object
         $woofles_detail = $this->createTab(
             'woofles_detail',
             'Product detail',
@@ -835,6 +883,9 @@ SHOPWARE_EOD;
                 ],
             ]
         );
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         
         // Create the fieldset which is the container of our field
         $woofles_detail_basic_settings = $this->createFieldSet(
@@ -853,49 +904,43 @@ SHOPWARE_EOD;
             )
         );
         
-        // Create the checkbox
+        // Creating fields for "Detail basic settings"
         $woofles_detail_hide_similar_products_stream = $this->createCheckboxField(
             'woofles_detail_hide_similar_products_stream',
             'Hide \'Similar products\' stream',
             false
         );
         
-        // Create the checkbox
         $woofles_detail_hide_accessory_products_stream = $this->createCheckboxField(
             'woofles_detail_hide_accessory_products_stream',
             'Hide \'Accessory products\' stream',
             false
         );
         
-        // Create the checkbox
         $woofles_detail_hide_also_viewed_products_stream = $this->createCheckboxField(
             'woofles_detail_hide_also_viewed_products_stream',
             'Hide \'Also viewed products\' stream',
             false
         );
 
-        // Create the textfield
         $woofles_detail_product_name_size = $this->createTextField(
             'woofles_detail_product_name_size',
             'Product name font-size',
             ''
         );
         
-        // Create the textfield
         $woofles_detail_product_price_size = $this->createTextField(
             'woofles_detail_product_price_size',
             'Product price font-size',
             ''
         );
         
-        // Create the textfield
         $woofles_detail_product_pseudoprice_size = $this->createTextField(
             'woofles_detail_product_pseudoprice_size',
             'Product pseudo-price font-size',
             ''
         );
         
-        // Create the textfield
         $woofles_detail_product_default_price_size = $this->createTextField(
             'woofles_detail_product_default_price_size',
             'Product default-price font-size',
@@ -910,6 +955,9 @@ SHOPWARE_EOD;
         $woofles_detail_basic_settings->addElement($woofles_detail_product_price_size);
         $woofles_detail_basic_settings->addElement($woofles_detail_product_pseudoprice_size);
         $woofles_detail_basic_settings->addElement($woofles_detail_product_default_price_size);
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         
         // Adding the fieldset to the tab
         $woofles_detail->addElement($woofles_detail_basic_settings);
@@ -924,6 +972,7 @@ SHOPWARE_EOD;
      */
     private function createStaticPagesTabConfig(){
         
+        // Create the tab object
         $woofles_static_pages = $this->createTab(
             'woofles_static_pages',
             'Static pages',
@@ -933,6 +982,9 @@ SHOPWARE_EOD;
                 ],
             ]
         );
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         
         // Create the fieldset which is the container of our field
         $woofles_static_pages_basic_settings = $this->createFieldSet(
@@ -951,14 +1003,13 @@ SHOPWARE_EOD;
             )
         );
         
-        // Create the checkbox
+        // Creating fields for "Static pages basic settings"
         $woofles_static_pages_paragraphs_bottom_margin = $this->createTextField(
             'woofles_static_pages_paragraphs_bottom_margin',
             "margin-bottom of paragraphs",
             ''
         );
 
-        // Create the textfield
         $woofles_homepage_emotion_width = $this->createTextField(
             'woofles_homepage_emotion_width',
             'Shopping worlds width on homepage',
@@ -967,6 +1018,10 @@ SHOPWARE_EOD;
 
         // Adding the fields to the fieldset
         $woofles_static_pages_basic_settings->addElement($woofles_static_pages_paragraphs_bottom_margin);
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
         // Adding the fieldset to the tab
         $woofles_static_pages->addElement($woofles_static_pages_basic_settings);
         
@@ -980,6 +1035,7 @@ SHOPWARE_EOD;
      */
     private function createCheckoutTabConfig(){
         
+        // Create the tab object
         $woofles_checkout = $this->createTab(
             'woofles_checkout',
             'Checkout',
@@ -989,6 +1045,9 @@ SHOPWARE_EOD;
                 ],
             ]
         );
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         
         // Create the fieldset which is the container of our field
         $woofles_checkout_shipping_logo_settings = $this->createFieldSet(
@@ -1006,6 +1065,25 @@ SHOPWARE_EOD;
                 )
             )
         );
+
+        // Creating fields for "Checkout shipping-logo settings"
+        $woofles_checkout_add_custom_shipping_logos = $this->createCheckboxField(
+            'woofles_checkout_add_custom_shipping_logos',
+            "Add custom shipping-methods logo",
+            false
+        );
+
+        $woofles_checkout_custom_shipping_logos = $this->createMediaField(
+            'woofles_checkout_custom_shipping_logos',
+            'Custom shipping-methods logo',
+            ''
+        );
+        
+        // Adding the fields to the fieldset
+        $woofles_checkout_shipping_logo_settings->addElement($woofles_checkout_add_custom_shipping_logos);
+        $woofles_checkout_shipping_logo_settings->addElement($woofles_checkout_custom_shipping_logos);
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         
         // Create the fieldset which is the container of our field
         $woofles_checkout_payment_logo_settings = $this->createFieldSet(
@@ -1024,28 +1102,13 @@ SHOPWARE_EOD;
             )
         );
         
-        // Create the checkbox
-        $woofles_checkout_add_custom_shipping_logos = $this->createCheckboxField(
-            'woofles_checkout_add_custom_shipping_logos',
-            "Add custom shipping-methods logo",
-            false
-        );
-
-        // Create the textfield
-        $woofles_checkout_custom_shipping_logos = $this->createMediaField(
-            'woofles_checkout_custom_shipping_logos',
-            'Custom shipping-methods logo',
-            ''
-        );
-        
-        // Create the checkbox
+        // Creating fields for "Checkout payment-logo settings"
         $woofles_checkout_add_custom_payment_logos = $this->createCheckboxField(
             'woofles_checkout_add_custom_payment_logos',
             "Add custom payment-methods logo",
             false
         );
 
-        // Create the textfield
         $woofles_checkout_custom_payment_logos = $this->createMediaField(
             'woofles_checkout_custom_payment_logos',
             'Custom payment-methods logo',
@@ -1053,10 +1116,12 @@ SHOPWARE_EOD;
         );
 
         // Adding the fields to the fieldset
-        $woofles_checkout_shipping_logo_settings->addElement($woofles_checkout_add_custom_shipping_logos);
-        $woofles_checkout_shipping_logo_settings->addElement($woofles_checkout_custom_shipping_logos);
         $woofles_checkout_payment_logo_settings->addElement($woofles_checkout_add_custom_payment_logos);
         $woofles_checkout_payment_logo_settings->addElement($woofles_checkout_custom_payment_logos);
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
         // Adding the fieldset to the tab
         $woofles_checkout->addElement($woofles_checkout_shipping_logo_settings);
         $woofles_checkout->addElement($woofles_checkout_payment_logo_settings);
@@ -1071,6 +1136,7 @@ SHOPWARE_EOD;
      */
     private function createFormsTabConfig(){
         
+        // Create the tab object
         $woofles_forms = $this->createTab(
             'woofles_forms',
             'Forms',
@@ -1080,6 +1146,9 @@ SHOPWARE_EOD;
                 ],
             ]
         );
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
         
         // Create the fieldset which is the container of our field
         $woofles_forms_basic_settings = $this->createFieldSet(
@@ -1098,6 +1167,7 @@ SHOPWARE_EOD;
             )
         );
         
+        // Creating fields for "Forms basic settings"
         $woofles_forms_label_margin_bottom = $this->createTextField(
             'woofles_forms_label_margin_bottom',
             "Label's margin-bottom",
@@ -1113,6 +1183,10 @@ SHOPWARE_EOD;
         // Adding the fields to the fieldset
         $woofles_forms_basic_settings->addElement($woofles_forms_label_margin_bottom);
         $woofles_forms_basic_settings->addElement($woofles_forms_input_margin_bottom);
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
         // Adding the fieldset to the tab
         $woofles_forms->addElement($woofles_forms_basic_settings);
         
@@ -1127,6 +1201,7 @@ SHOPWARE_EOD;
      */
     private function createFlyinPoopupTabConfig(){
         
+        // Create the tab object
         $woofles_flyin = $this->createTab(
             'woofles_flyin',
             'Fly-in',
@@ -1137,8 +1212,8 @@ SHOPWARE_EOD;
             ]
         );
         
-        
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         // Create the fieldset which is the container of our field
         $woofles_flyin_basic_settings = $this->createFieldSet(
@@ -1158,6 +1233,7 @@ SHOPWARE_EOD;
             )
         );
         
+        // Creating fields for "Fly-in basic settings"
         $woofles_flyin_is_enabled = $this->createCheckboxField(
             'woofles_flyin_is_enabled',
             "Enable fly-in",
@@ -1233,7 +1309,20 @@ SHOPWARE_EOD;
             date('%d/%m/%Y', strtotime('+1 month', $startDate))
         );
 
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+        // Adding the fields to the fieldset
+        $woofles_flyin_basic_settings->addElement($woofles_flyin_is_enabled);
+        $woofles_flyin_basic_settings->addElement($woofles_flyin_content_type);
+        $woofles_flyin_basic_settings->addElement($woofles_flyin_position);
+        $woofles_flyin_basic_settings->addElement($woofles_flyin_margin);
+        $woofles_flyin_basic_settings->addElement($woofles_flyin_content_width);
+        $woofles_flyin_basic_settings->addElement($woofles_flyin_content_height);
+        $woofles_flyin_basic_settings->addElement($woofles_flyin_link_href);
+        $woofles_flyin_basic_settings->addElement($woofles_flyin_is_date_limited);
+        $woofles_flyin_basic_settings->addElement($woofles_flyin_date_start);
+        $woofles_flyin_basic_settings->addElement($woofles_flyin_date_end);
+
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
         $woofles_flyin_label_settings = $this->createFieldSet(
             'woofles_flyin_label_settings',
             'Fly-in label settings',
@@ -1292,11 +1381,18 @@ SHOPWARE_EOD;
             "Label height",
             '40px'
         );
+
+        // Adding the fields to the fieldset
+        $woofles_flyin_label_settings->addElement($woofles_flyin_label_content);
+        $woofles_flyin_label_settings->addElement($woofles_flyin_label_font_size);
+        $woofles_flyin_label_settings->addElement($woofles_flyin_label_font_weight);
+        $woofles_flyin_label_settings->addElement($woofles_flyin_label_uppercase);
+        $woofles_flyin_label_settings->addElement($woofles_flyin_label_font_color);
+        $woofles_flyin_label_settings->addElement($woofles_flyin_label_bg_color);
+        $woofles_flyin_label_settings->addElement($woofles_flyin_label_height);
         
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////
         $woofles_flyin_img_content_settings = $this->createFieldSet(
             'woofles_flyin_img_content_settings',
             'Fly-in image-content settings',
@@ -1319,11 +1415,12 @@ SHOPWARE_EOD;
             "Image content",
             ''
         );
+
+        // Adding the fields to the fieldset
+        $woofles_flyin_img_content_settings->addElement($woofles_flyin_img_content);
         
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        
         $woofles_flyin_dig_pub_content_settings = $this->createFieldSet(
             'woofles_flyin_dig_pub_content_settings',
             'Fly-in digital publishing settings',
@@ -1347,11 +1444,12 @@ SHOPWARE_EOD;
             ''
         );
         $woofles_flyin_dig_pub_content->setHelp('Source of data example: {action module=widgets controller=SwagDigitalPublishing bannerId=11}; ID..bannerId=11');
+
+        // Adding the fields to the fieldset        
+        $woofles_flyin_dig_pub_content_settings->addElement($woofles_flyin_dig_pub_content);
         
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////
         $woofles_flyin_custom_content_settings = $this->createFieldSet(
             'woofles_flyin_custom_content_settings',
             'Fly-in custom-content settings',
@@ -1376,36 +1474,12 @@ SHOPWARE_EOD;
             ['attributes' => ['xtype' => 'textarea', 'lessCompatible' => false, 'height' => 200], 'help' => '__woofles_flyin_custom_content__']
         );
         $woofles_flyin_custom_content->setHelp('Inserting custom html structure is also possible.');
-        
-        ///////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        
-
-        // Adding the fields to the fieldset
-        $woofles_flyin_basic_settings->addElement($woofles_flyin_is_enabled);
-        $woofles_flyin_basic_settings->addElement($woofles_flyin_content_type);
-        $woofles_flyin_basic_settings->addElement($woofles_flyin_position);
-        $woofles_flyin_basic_settings->addElement($woofles_flyin_margin);
-        $woofles_flyin_basic_settings->addElement($woofles_flyin_content_width);
-        $woofles_flyin_basic_settings->addElement($woofles_flyin_content_height);
-        $woofles_flyin_basic_settings->addElement($woofles_flyin_link_href);
-        $woofles_flyin_basic_settings->addElement($woofles_flyin_is_date_limited);
-        $woofles_flyin_basic_settings->addElement($woofles_flyin_date_start);
-        $woofles_flyin_basic_settings->addElement($woofles_flyin_date_end);
-
-        $woofles_flyin_label_settings->addElement($woofles_flyin_label_content);
-        $woofles_flyin_label_settings->addElement($woofles_flyin_label_font_size);
-        $woofles_flyin_label_settings->addElement($woofles_flyin_label_font_weight);
-        $woofles_flyin_label_settings->addElement($woofles_flyin_label_uppercase);
-        $woofles_flyin_label_settings->addElement($woofles_flyin_label_font_color);
-        $woofles_flyin_label_settings->addElement($woofles_flyin_label_bg_color);
-        $woofles_flyin_label_settings->addElement($woofles_flyin_label_height);
-
-        $woofles_flyin_img_content_settings->addElement($woofles_flyin_img_content);
-        
-        $woofles_flyin_dig_pub_content_settings->addElement($woofles_flyin_dig_pub_content);
-        
+        // Adding the fields to the fieldset        
         $woofles_flyin_custom_content_settings->addElement($woofles_flyin_custom_content);
+        
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         // Adding the fieldset to the tab
         $woofles_flyin->addElement($woofles_flyin_basic_settings);
@@ -1413,7 +1487,6 @@ SHOPWARE_EOD;
         $woofles_flyin->addElement($woofles_flyin_img_content_settings);
         $woofles_flyin->addElement($woofles_flyin_dig_pub_content_settings);
         $woofles_flyin->addElement($woofles_flyin_custom_content_settings);
-
         
         return $woofles_flyin;
     }

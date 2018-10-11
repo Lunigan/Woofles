@@ -1,5 +1,15 @@
+/*
+---This "LESS" file contains all styles for Fly-In component.
+---
+*/
+
+/*
+---Fly-In styles
+*/
 body{
     .page-wrap{
+
+        //Fly-in wrapper
         .woofles--flyin-banner-wrapper{
             width: @woofles_flyin_content_width;
             height: @woofles_flyin_content_height;
@@ -7,6 +17,7 @@ body{
             background-color: lighten(@brand-secondary, 20%);
             transition: 0.5s all;
 
+            //Fly-in label wrapper
             .woofles--flyin-banner-label-wrapper{
                 font-size: @woofles_flyin_label_font_size;
                 font-weight: @woofles_flyin_label_font_weight;
@@ -14,7 +25,9 @@ body{
                 background-color: @woofles_flyin_label_bg_color;
                 cursor: pointer;
             }
+
             ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
             /*
             -- BOTTOM-RIGHT position            
             */
@@ -68,7 +81,9 @@ body{
                     bottom: 0;
                 }
             }
+
             ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+            
             /*
             -- RIGHT position            
             */

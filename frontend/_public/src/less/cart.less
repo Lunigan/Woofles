@@ -1,5 +1,18 @@
+/*
+---This "LESS" file contains all styles for cart page and window (off-canvas).
+---
+*/
+
+/*
+---Cart styles
+*/
 body {
     .page-wrap{
+
+        /*
+        ---Off-canvas cart styles - unified with login off-canvas
+        */
+        //Wrapper
         .container--ajax-cart.off-canvas{
             max-width: @woofles_off_canvas_width;
             width: 100%;
@@ -9,6 +22,7 @@ body {
             .ajax--cart{
                 background: @woofles_off_canvas_bg_color;
 
+                //Closing button
                 .buttons--off-canvas{
                     .close--off-canvas{
                         background: darken(@woofles_off_canvas_bg_color, 5%);
@@ -16,6 +30,7 @@ body {
                     }
                 }
 
+                //Alert section - #TODO
                 .alert{
                     color: @woofles_off_canvas_font_color;
                     // background: lighten(@woofles_off_canvas_bg_color, 10%);
@@ -26,14 +41,17 @@ body {
                     }
                 }
 
+                //Item list container
                 .item--container{
                     background: @woofles_off_canvas_bg_color;
                     padding-left: 35px;
                     padding-right: 35px;
 
+                    //Item container
                     .cart--item{
                         border-bottom-color: darken(@woofles_off_canvas_bg_color, 20%);
 
+                        //Remove button
                         .action--container .action--remove{
                             background: @woofles_off_canvas_secondary_btn_bg_color;
                             color: @woofles_off_canvas_secondary_btn_font_color;
@@ -53,6 +71,7 @@ body {
                     }
                 }
 
+                //Prices sum section
                 .prices--container{
                     color: @woofles_off_canvas_font_color;
                     background: @woofles_off_canvas_bg_color;
@@ -69,10 +88,12 @@ body {
                     }
                 }
 
+                //Button container
                 .button--container{
                     padding-left: 35px;
                     padding-right: 35px;
 
+                    //Primary button - To Checkout
                     .btn.button--checkout{
                         background: @woofles_off_canvas_primary_btn_bg_color;
                         color: @woofles_off_canvas_primary_btn_font_color;
@@ -86,6 +107,7 @@ body {
                         }
                     }
 
+                    //Secondary button - TO Edit cart
                     .btn.button--open-basket{
                         background: @woofles_off_canvas_secondary_btn_bg_color;
                         color: @woofles_off_canvas_secondary_btn_font_color;

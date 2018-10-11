@@ -1,7 +1,7 @@
-/**
- * This Javascript file contains all functions and events
- * manipulating with navigation elements.
- */
+/****
+-----This Javascript file contains all functions and events
+-----manipulating with navigation elements.
+****/
 
 /**
  * This event is responsible for hiding navigation bar in header on scroll-down.
